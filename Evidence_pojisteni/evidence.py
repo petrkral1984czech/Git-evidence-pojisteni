@@ -26,3 +26,4 @@ class Evidence:
                 seznam_jmen.append(i)
 
         return seznam_jmen
+    
