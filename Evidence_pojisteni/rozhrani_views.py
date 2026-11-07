@@ -10,19 +10,23 @@ class Rozhrani:  # založím třídu  Rozhraní
     def __init__(self, evidence):
         self.evidence = evidence
 
-    def _nacti_text(self, vyzva):  # slouží k načtení textu, měl by upbrat mezery ze vstupu
+    def _nacti_text(self, vyzva):
         while True:
             vstup = input(vyzva).strip()
             if vstup:
                 return vstup
             print("Zadejte prosím text. Hodnota nesmí být prázdná.")
 
-    def _nacti_cislo(self, vyzva):  # tahle metoda načte číslo a odstraní mezery
+    def _nacti_cislo(self, vyzva):
         while True:
-            vstup = input(vyzva).strip()
-            if vstup.isdigit():
-                return int(vstup)
-            print("Zadejte prosím číslo")
+            try:
+                cislo = int(input(vyzva).strip())
+                if cislo < 0:
+                    print("Číslo nesmí být menší než 0.")
+                    continue
+                return cislo
+            except ValueError:
+                print("Zadejte prosím platné číslo.")
 
     def _nacti_jmeno_prijmeni(self):  # načte jmeno a příjmení bez mezer
         jmeno = self._nacti_text("Zadejte jméno: \n")
@@ -33,7 +37,7 @@ class Rozhrani:  # založím třídu  Rozhraní
         jmeno = self._nacti_text("Zadejte jméno: \n")
         prijmeni = self._nacti_text("Zadejte příjmení: \n")
         vek = self._nacti_cislo("Zadejte věk: \n")
-        mobil = self._nacti_text("Zadejte mobilní číslo: \n")
+        mobil = self._nacti_cislo("Zadejte mobilní číslo: \n")
 
         self.evidence.pridej_pojistence(jmeno, prijmeni, vek, mobil)
         print(f"Pojištěnec {jmeno} {prijmeni} byl úspěšně přidán.\n")
@@ -67,8 +71,8 @@ class Rozhrani:  # založím třídu  Rozhraní
         input()
 
     def spust(self):  # tady spustím rozhraní pro uživatele, aby mohl zadávat příkazy
-
-        while True:
+        volba = ""
+        while volba != "4":
             print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
             print("                         Evidence pojištených osob ")
             print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
@@ -94,3 +98,4 @@ class Rozhrani:  # založím třídu  Rozhraní
                     break
                 case _:  # varianta pro  neplatnou volbu u case místo else co se užívá u IF
                     print("Neplatná volba. Zadejte číslo od 1 do 4.\n")
+

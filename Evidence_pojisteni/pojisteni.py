@@ -8,4 +8,4 @@ class Pojisteny:
         self.mobil = mobil
 
     def __str__(self):
-        return f"Jméno: {self.jmeno},Příjmení: {self.prijmeni}, věk: {self.vek}, mobil: {self.mobil}"
+        return f"Jméno: {self.jmeno}, Příjmení: {self.prijmeni}, věk: {self.vek}, mobil: {self.mobil}"
