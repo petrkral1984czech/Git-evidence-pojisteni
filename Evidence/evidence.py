@@ -22,13 +22,13 @@ class Evidence:
         ]
 
     def smaz_pojistence(self, jmeno, prijmeni):
-        vrat_jmeno = jmeno.lower().strip()
-        vrat_prijmeni = prijmeni.lower().strip()
+        vrat_jmeno = jmeno.lower()
+        vrat_prijmeni = prijmeni.lower()
         pocet_puvodni = len(self._pojisteni)
 
         self._pojisteni = [
             p for p in self._pojisteni
-                if not (p.jmeno.lower().strip() == vrat_jmeno and p.prijmeni.lower().strip() == vrat_prijmeni)
+                if not (p.jmeno.lower() == vrat_jmeno and p.prijmeni.lower() == vrat_prijmeni)
         ]
 
         return len(self._pojisteni) < pocet_puvodni
