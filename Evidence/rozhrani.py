@@ -8,21 +8,32 @@ class Rozhrani:
 
     def nacti_text (self, vstup):     # načte text pro vstup od uživatele
         while True:
-            vstup = input(vstup).strip()
-            if vstup:
-                return vstup
-            print ("zadejte platný text, nesmí být pole prázdné\n")
+            vyzva = input(vstup).strip()
+            if not vyzva:
+                print("Zadejte text, nikoliv   prázdné pole.\n") # kontroluje zda bylo zadána hodnota nebo nic
+
+            elif any(char.isdigit() for char in vyzva):  # kontroluje zda je text bez čísla
+                print ("Zadejte text bez čísel\n")
+            else:
+                return vyzva
 
     def nacti_cislo(self, vstup):    #načte číslko od uživatele pro věk a mobil
         while True:
             vstup = input(vstup).strip()
-            if vstup.isdigit():
-                return int(vstup)
-            print("zadejte platné číslo, nesmí být pole prázdné\n")
+            vstup_bez_mezer = vstup.replace(" ", "")
+            if not vstup:
+                print("Zadejte číslo a ne prázdné pole\n")
+            elif not vstup_bez_mezer.isdigit():
+                print ("Zadejte číslo bez použité textu a záporných hodnot\n")
+            else:
+                return (vstup)
+
+
+
 
     def nacti_jmeno_prijmeni(self):    # načte textovou hodnotu vstupu a předá do jména a příjmení
-        jmeno = self.nacti_text("Zadejte jméno\n")
-        prijmeni = self.nacti_text("Zadejte příjmení\n")
+        jmeno = self.nacti_text("Zadejte jméno\n").title()     # nacte text do jmána a title by mělo udělat první písmeno velké a další již malá
+        prijmeni = self.nacti_text("Zadejte příjmení\n").title()  # naste text do prijmeni a melo by udělat první písmeno velke a další malá
         return jmeno, prijmeni
 
     def pridej_pojistence(self):   # dodání nového pojištence
@@ -71,9 +82,12 @@ class Rozhrani:
         else:
             print(f"Pojištěnec {jmeno} {prijmeni} nebyl nalezen v evidenci.\n")
 
+        input("zmáčkni klávesu pro pokračování")
 
-    def spust(self):
-        while True:
+
+    def spust(self):    #spustí výběr akce pro uživatele co chtějí udělat s evidencí
+        volba = ""
+        while volba != "5":
             print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
             print("                Evidence pojištěnců")
             print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n")
@@ -85,7 +99,7 @@ class Rozhrani:
             print("4. Smazat pojištěnce")
             print("5. Konec programu")
 
-            volba = input(" ").strip()
+            volba = input(" \n").strip()
 
             match volba:
 
