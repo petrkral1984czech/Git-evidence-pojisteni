@@ -20,10 +20,10 @@ class Rozhrani:
     def nacti_cislo(self, vstup):    #načte číslko od uživatele pro věk a mobil
         while True:
             vstup = input(vstup).strip()
-            vstup_bez_mezer = vstup.replace(" ", "")
+            vstup_bez_textu = vstup.replace(" ", "")
             if not vstup:
                 print("Zadejte číslo a ne prázdné pole\n")
-            elif not vstup_bez_mezer.isdigit():
+            elif not vstup_bez_textu.isdigit():
                 print ("Zadejte číslo bez použité textu a záporných hodnot\n")
             else:
                 return (vstup)
@@ -39,7 +39,10 @@ class Rozhrani:
     def pridej_pojistence(self):   # dodání nového pojištence
         jmeno, prijmeni = self.nacti_jmeno_prijmeni()
         vek = self.nacti_cislo("Zadejte věk\n")
-        mobil = self.nacti_cislo("Zadejte telefonní číslo\n")
+        mobil_nacti = self.nacti_cislo("Zadejte telefonní číslo\n")
+        mobil_uprav = str(mobil_nacti).replace(" ", "")  # převod na text a odmazání mezer
+        mobil = f"{mobil_uprav[:3]} {mobil_uprav[3:6]} {mobil_uprav[6:]}"  # upravím formát na mobilní 111 222 333 pro čitelnost
+
 
         self.evidence.pridat_pojisteneho(jmeno, prijmeni, vek, mobil)
         print(f"Pojistenec {jmeno} {prijmeni} byl úspěšně přidán.\n")
