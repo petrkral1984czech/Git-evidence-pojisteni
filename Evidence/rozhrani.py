@@ -1,5 +1,4 @@
-from Evidence.evidence import Evidence
-from evidence import Evidence
+import time
 
 class Rozhrani:
 
@@ -17,7 +16,7 @@ class Rozhrani:
             else:
                 return vyzva
 
-    def nacti_cislo(self, vstup):    #načte číslko od uživatele pro věk a mobil
+    def nacti_cislo(self, vstup):    #načte číslo od uživatele pro věk a mobil
         while True:
             vstup = input(vstup).strip()
             vstup_bez_textu = vstup.replace(" ", "")
@@ -46,7 +45,7 @@ class Rozhrani:
 
         self.evidence.pridat_pojisteneho(jmeno, prijmeni, vek, mobil)
         print(f"Pojistenec {jmeno} {prijmeni} byl úspěšně přidán.\n")
-        input("zmáčkni klávesu pro pokračování")
+        time.sleep(2)
 
     def vypis_pojistence(self):    #vypis všech údajů o pojištěncích
             pojistenci = self.evidence.vypis_pojistence()
@@ -56,11 +55,10 @@ class Rozhrani:
             else:
                 print("Seznam pojištěnců:\n")
 
-
                 for pojisteny in pojistenci:
                     print(pojisteny)
 
-            input("zmáčkni klávesu pro pokračování")
+            input("zmáčni klávesu pro pokračování")
 
     def vyhledej_pojistence(self):
         jmeno, prijmeni = self.nacti_jmeno_prijmeni()
@@ -73,7 +71,7 @@ class Rozhrani:
             for pojisteny in nalezeni_pojistenci:
                 print(pojisteny)
 
-        input("zmáčkni klávesu pro pokračování")
+        input("zmáčni klávesu pro pokračování")
 
     def smaz_pojistence(self):              # maže pojištence dle jmén a příjmení
         print ("**** Mazání pojištěnce ****\n")
@@ -85,7 +83,7 @@ class Rozhrani:
         else:
             print(f"Pojištěnec {jmeno} {prijmeni} nebyl nalezen v evidenci.\n")
 
-        input("zmáčkni klávesu pro pokračování")
+    time.sleep(3)
 
 
     def spust(self):    #spustí výběr akce pro uživatele co chtějí udělat s evidencí
