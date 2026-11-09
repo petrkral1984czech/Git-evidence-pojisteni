@@ -1,4 +1,5 @@
 import time
+import os
 
 class Rozhrani:
 
@@ -27,7 +28,8 @@ class Rozhrani:
             else:
                 return (vstup)
 
-
+    def vymaz_obrazovku (self):
+        os.system('cls' if os.name == 'nt' else 'clear')
 
 
     def nacti_jmeno_prijmeni(self):    # načte textovou hodnotu vstupu a předá do jména a příjmení
@@ -46,6 +48,7 @@ class Rozhrani:
         self.evidence.pridat_pojisteneho(jmeno, prijmeni, vek, mobil)
         print(f"Pojistenec {jmeno} {prijmeni} byl úspěšně přidán.\n")
         time.sleep(2)
+        self.vymaz_obrazovku()
 
     def vypis_pojistence(self):    #vypis všech údajů o pojištěncích
             pojistenci = self.evidence.vypis_pojistence()
@@ -59,6 +62,7 @@ class Rozhrani:
                     print(pojisteny)
 
             input("zmáčni klávesu pro pokračování")
+            self.vymaz_obrazovku()
 
     def vyhledej_pojistence(self):
         jmeno, prijmeni = self.nacti_jmeno_prijmeni()
@@ -72,6 +76,7 @@ class Rozhrani:
                 print(pojisteny)
 
         input("zmáčni klávesu pro pokračování")
+        self.vymaz_obrazovku()
 
     def smaz_pojistence(self):              # maže pojištence dle jmén a příjmení
         print ("**** Mazání pojištěnce ****\n")
@@ -83,7 +88,8 @@ class Rozhrani:
         else:
             print(f"Pojištěnec {jmeno} {prijmeni} nebyl nalezen v evidenci.\n")
 
-    time.sleep(3)
+        time.sleep(3)
+        self.vymaz_obrazovku()
 
 
     def spust(self):    #spustí výběr akce pro uživatele co chtějí udělat s evidencí
