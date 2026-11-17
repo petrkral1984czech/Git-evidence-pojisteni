@@ -9,6 +9,7 @@ class Evidence:
         pojisteny = Pojisteny(jmeno, prijmeni, vek, mobil)
         self._pojisteni.append(pojisteny)
 
+
     def vypis_pojistence(self):    # vrátí seznam pojistenců
         return self._pojisteni
 
@@ -21,6 +22,7 @@ class Evidence:
             if p.jmeno.lower().strip() == vrat_jmeno and p.prijmeni.lower().strip() == vrat_prijmeni
         ]
 
+
     def smaz_pojistence(self, jmeno, prijmeni):
         vrat_jmeno = jmeno.lower()
         vrat_prijmeni = prijmeni.lower()
@@ -31,4 +33,4 @@ class Evidence:
                 if not (p.jmeno.lower() == vrat_jmeno and p.prijmeni.lower() == vrat_prijmeni)
         ]
 
-        return len(self._pojisteni) < pocet_puvodni
+        return len(self._pojisteni) < pocet_puvodni 

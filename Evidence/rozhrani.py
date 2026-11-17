@@ -1,6 +1,9 @@
 import time
 import os
 
+from Evidence.evidence import Evidence
+
+
 class Rozhrani:
 
     def __init__(self, evidence):
