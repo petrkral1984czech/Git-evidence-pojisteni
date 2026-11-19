@@ -103,7 +103,7 @@
  [],
  False,
  False,
- 1794262711,
+ 1794935738,
  [('run.exe',
    'C:\\Users\\petrk\\Dropbox\\PythonProject\\PythonProject\\PythonProject\\Git-evidence-pojisteni\\.venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
    'EXECUTABLE')],
