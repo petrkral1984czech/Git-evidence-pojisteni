@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+.pridat, .hledat, .smazat, .zobraz_seznam_pojistencu  {
+    color:white;
+    background: linear-gradient(to bottom right, blue, #f8fafc);
+    border-width: 6px;
+    box-shadow: 7px 7px 15px gray;
+    border-radius: 25px;
+    margin: 13px auto;
+    padding: 10px;
+
+}
+
+.main {
+    background-color: darkred;
+    color: snow;
+    font-size: 3em;
+    text-align: center;
+    margin: 20px
+}
+
+.vystupy {
+    color:white;
+    background: linear-gradient(160deg, darkred, white);
+    padding: 0px 15px;
+    font-size: 1.3em;
+    border-radius: 7px;
+}
+
+.zobraz_seznam_pojistencu button{
+    min-width: 75px;
+    font-size: 16px;
+    padding: 0px 15px;
+}
+
+.zobraz_seznam_pojistencu button:hover{
+    transform: scale(110%);
+    filter: contrast(1.8);
+    background-color: yellow;
+}
+
+.smazat button:hover{
+    background-color: red;
+    transform: scale(120%);
+}
+
+.pridat button:hover{
+    background-color: deeppink;
+    transform: scale(120%);
+}
+
+.hledat button:hover{
+    background-color: deeppink;
+    transform: scale(120%);
+}
+

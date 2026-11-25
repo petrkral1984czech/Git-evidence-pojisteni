@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>*** EVIDENCE POJIŠTĚNCŮ *** </title>
+    <link rel="stylesheet" href="/static/styl.css">
 </head>
 <body>
+<main class="main">******************** EVIDENCE POJIŠTĚNCŮ ********************</main>
+<p>
 
+</p>
+<div class="pridat">
+
+    <h1> PŘIDAT POJIŠTĚNCE</h1>
+    <form action="/pridat" method="post">
+    <input type="text" name="jmeno" placeholder="Jméno" required>
+    <input type="text" name="prijmeni" placeholder="Příjmení" required>
+    <input type="text" name="vek" placeholder="Věk" required>
+    <input type="text" name="telefon" placeholder="Telefon" required>
+    <button type="submit">Uložit</button>
+    </form>
+</div>
+
+<div class="hledat">
+
+    <h1> VYHLEDAT POJIŠTĚNCE </h1>
+    <form action="/vyhledat" method="post">
+    <input type="text" name="jmeno" placeholder="Jméno" required>
+    <input type="text" name="prijmeni" placeholder="Příjmení" required>
+    <button type="submit">Vyhledat</button>
+    </form>
+</div>
+
+<div class="smazat">
+
+    <h1> SMAZAT POJIŠTĚNCE </h1>
+    <form action="/smazat" method="post">
+    <input type="text" name="jmeno" placeholder="Jméno" required>
+    <input type="text" name="prijmeni" placeholder="Příjmení" required>
+    <button type="submit">Smazat</button>
+    </form>
+</div>
+
+<div class="zobraz_seznam_pojistencu">
+    <h1> SEZNAM VŠECH POJIŠTĚNCŮ </h1>
+    <form action="/vse" method="post">
+    <button type="submit">Vypsat všechny pojištěnce</button>
+    </form>
+</div>
+
+<div class="vystupy">
+    [[OBSAH]]
+</div>
 </body>
 </html>
